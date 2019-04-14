@@ -81,12 +81,15 @@ app.get("/blogs/:id/edit",function(req,res){
   })
 })
 app.put("/blogs/:id",function(req,res){
-    req.blody.blog.body=req.sanitize(req.body.blog.body);
+  //  req.blody.blog.body=req.sanitize(req.body.blog.body);
 blog.findByIdAndUpdate(req.params.id,req.body.blog,function(err,found){
     if(err){
-  res.redirect("/blogs");
+        console.log("heh");
+          res.redirect("/blogs");
     }
     else{
+        console.log(found);
+
 res.redirect("/blogs/"+req.params.id);
     }
 })
